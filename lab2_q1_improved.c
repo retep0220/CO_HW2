@@ -1,0 +1,13 @@
+// TODO : 
+ "li x5, 16\n\t"
+ "vsetvli x0, x5, e16\n\t"
+ "vle16.v v0, (%[x])\n\t"
+ "addi %[x], %[x], 32\n\t"
+  "vle16.v v1, (%[h])\n\t"
+  "addi %[h], %[h], 32\n\t"
+  "vadd.vv v2, v0, v1\n\t"
+  "vse16.v v2, (%[y])\n\t"
+  "addi %[arith_cnt], %[arith_cnt], 1\n\t"
+  "addi %[lw_cnt], %[lw_cnt], 3\n\t"
+  "addi %[sw_cnt], %[sw_cnt], 1\n\t"
+  "addi %[others_cnt], %[others_cnt], 1\n\t"
